@@ -28,8 +28,8 @@ def create_table_hvmv_substations(**kwargs):
 	                     subst_id   serial NOT NULL,
 	                     lon        float NOT NULL,
 	                     lat        float NOT NULL,
-	                     point	   geometry(Point,4326) NOT NULL,
-	                     polygon	   geometry NOT NULL,	
+	                     point      geometry(Point,4326) NOT NULL,
+	                     polygon    geometry NOT NULL,	
 	                     voltage    text,
 	                     power_type text,
 	                     substation text,
@@ -40,7 +40,7 @@ def create_table_hvmv_substations(**kwargs):
 	                     ref        text,
 	                     operator   text,
 	                     dbahn      text,
-	                     status	   smallint NOT NULL); 
+	                     status     smallint NOT NULL); 
 
                  ALTER TABLE model_draft.ego_grid_hvmv_substation OWNER TO oeuser;
 
@@ -244,9 +244,9 @@ def create_view_summary_total(**kwargs):
                                                   THEN hstore(substation.tags)->'voltage' 
                                                   ELSE '110000' END) as voltage, 
 		                            hstore(substation.tags)->'power' as power_type, 
-		                            CASE WHEN hstore(substation.tags)->'substation' <> '' 
-                                                 THEN hstore(substation.tags)->'substation' 
-                                                 ELSE 'NA' END) as substation, 
+		                            (CASE WHEN hstore(substation.tags)->'substation' <> '' 
+                                                  THEN hstore(substation.tags)->'substation' 
+                                                  ELSE 'NA' END) as substation, 
 		                            substation.osm_id as osm_id, 
                                             osm_www,
 		                            (CASE WHEN hstore(substation.tags)->'frequency' <> '' 
