@@ -19,8 +19,26 @@
 * Example: sql_alchemy_conn = postgresql+psycopg2://airflow:password@localhost:5432/airflow
 * Again "airflow initdb"
 
-3. Copy DAGs in "dags" folder and start the Apache Airflow from terminal with "airflow webserver -p 8080" and "airflow scheduler"
+3. In airflow.cfg file look for "executor" and change it to "executor = LocalExecutor"
 
-4. Creat new connection to your postgres
+4. Copy DAGs in "dags" folder and start the Apache Airflow from terminal with "airflow webserver -p 8080" and "airflow scheduler" in another terminal
 
-5. Trigger DAG
+5. Open "http://localhost:8080/" in web browser
+
+6. Creat new connection "postgres_oedb" to your postgres
+* On main page open "Admin --> Connections"
+* Choose "Create"
+* 
+* Conn Id: postgres_oedb
+* Conn Type: postgres
+* Host: localhost
+* Schema: oedb
+* Login: postgres
+* Password: your password for postgres
+* Port: 5432
+* 
+* "Save"
+
+7. Trigger DAG
+* On main page turn on all "ego_dp_substatios" DAGs
+* Click on first DAG (ego_dp_substation_hvmv) and trigger this DAG by "Trigger DAG" button
