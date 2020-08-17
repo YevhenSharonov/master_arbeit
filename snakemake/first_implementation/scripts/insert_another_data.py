@@ -17,7 +17,7 @@ def insert_another_data():
     with engine.connect() as connection:
         result = connection.execute('''
                  INSERT INTO new_table_snakemake
-                 VALUES ('2', '22', 'Second'); ''')
+                      VALUES ('2', '22', 'Second'); ''')
 
 write_into_fourth_file()
 insert_another_data()

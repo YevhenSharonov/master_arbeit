@@ -17,7 +17,7 @@ def insert_into_table():
     with engine.connect() as connection:
         result = connection.execute('''
                  INSERT INTO new_table_snakemake
-                 VALUES ('1', '11', 'First'); ''')
+                      VALUES ('1', '11', 'First'); ''')
 
 write_into_third_file()
 insert_into_table()
