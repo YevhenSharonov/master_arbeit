@@ -1,4 +1,6 @@
-# Installation (Apache Airflow)
+# Apache Airflow
+
+## Installation
 
 1. install conda 
 2. install apache-airflow ("airflow initdb" after installation) 
@@ -7,7 +9,7 @@
 5. install pscycopg2
 6. sudo apt-get install -y build-essential 
 
-# Usage
+## Usage
 
 1. Create user "airflow" and database "airflow" with password in PostgreSQL:
 * CREATE USER airflow with password 'password';
@@ -42,3 +44,31 @@
 7. Trigger DAG
 * On main page turn on all "ego_dp_substatios" DAGs
 * Click on first DAG (ego_dp_substation_hvmv) and trigger this DAG by "Trigger DAG" button
+
+
+
+# Snakemake
+
+## Installation
+
+1. install conda 
+2. conda install -c conda-forge mamba
+3. mamba create -c conda-forge -c bioconda -n snakemake snakemake
+4. conda activate snakemake
+5. install pscycopg2
+6. install SQLAlchemy
+
+## Usage
+
+1. Create folder "snakemake"
+2. Copy "scripts" folder and first.txt, Snakefile into "snakemake" folder
+3. Open scripts
+* Change path to files in every script
+* Change '12345678' password for postgres to your password 
+4. Create 'for_test_snakemake' database
+5. In "snakemake" folder execute "conda activate snakemake"
+6. Different options:
+* "snakemake -n" for performing a dry run of Snakemake 
+* "snakemake --dag | dot | display" for creating a representation of the DAG
+* "snakemake --cores 1" for execuring the workflow 
+ 

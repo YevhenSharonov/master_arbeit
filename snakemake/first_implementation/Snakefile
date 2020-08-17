@@ -1,0 +1,32 @@
+rule all:
+    input: 
+        "second.txt",
+        "third.txt",
+        "fourth.txt"
+
+
+
+rule create_table:
+    input: 
+        "first.txt"
+    output: 
+        "second.txt"
+    script: 
+        "scripts/create_table.py"
+
+
+rule insert_into_table:
+    input: 
+        "second.txt"
+    output: 
+        "third.txt"
+    script: 
+        "scripts/insert_into_table.py"
+
+rule insert_another_data:
+    input: 
+        "third.txt"
+    output: 
+        "fourth.txt"
+    script: 
+        "scripts/insert_another_data.py"
