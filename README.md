@@ -70,5 +70,5 @@
 6. Different options:
 * "snakemake -n" for performing a dry run of Snakemake 
 * "snakemake --dag | dot | display" for creating a representation of the DAG
-* "snakemake --cores 1" for execuring the workflow 
+* "snakemake --cores 1" for executing the workflow 
  
