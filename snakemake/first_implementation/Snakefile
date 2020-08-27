@@ -2,7 +2,9 @@ rule all:
     input: 
         "second.txt",
         "third.txt",
-        "fourth.txt"
+        "log_file.txt",
+    script:
+        "scripts/delete_files.py"
 
 
 
@@ -27,6 +29,6 @@ rule insert_another_data:
     input: 
         "third.txt"
     output: 
-        "fourth.txt"
+        "log_file.txt"
     script: 
         "scripts/insert_another_data.py"

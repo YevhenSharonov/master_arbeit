@@ -1,4 +1,5 @@
 from sqlalchemy import create_engine
+import datetime
 
 def write_into_third_file():
 
@@ -6,7 +7,8 @@ def write_into_third_file():
     f1 = open("/home/sharonov/snakemake/third.txt", "a")
     for x in f.readlines():
         f1.write(x)
-    f1.write("\nThis one is new also")
+    now = datetime.datetime.now()
+    f1.write("Task insert_into_table: " + str(now) + "\n")
     f.close()
     f1.close()
 
@@ -17,10 +19,11 @@ def insert_into_table():
     with engine.connect() as connection:
         result = connection.execute('''
                  INSERT INTO new_table_snakemake
-                      VALUES ('1', '11', 'First'); ''')
+                 VALUES ('1', '1', 'Info'); ''')
 
-write_into_third_file()
 insert_into_table()
+write_into_third_file()
+
 
 
 
