@@ -1,5 +1,6 @@
 from sqlalchemy import create_engine
 import datetime
+import time
 
 def write_into_fourth_file():
 
@@ -8,11 +9,14 @@ def write_into_fourth_file():
     for x in f.readlines():
         f1.write(x)
     now = datetime.datetime.now()
-    f1.write("\nego_dp_substation_ehv: " + str(now) + "\n")
+    f1.write("\nego_dp_substation_ehv:" + "\n    execution date: " + str(now) + "\n    execution time: {:>.3f}".format(execution_time) + " seconds" + "\n")
     f.close()
     f1.close()
 
 def ego_dp_substation_ehv():
+
+    global execution_time
+    start_time = time.monotonic()
 
     engine = create_engine('postgresql://postgres:12345678@localhost:5432/oedb')
 
@@ -319,6 +323,8 @@ def ego_dp_substation_ehv():
                               DROP VIEW IF EXISTS model_draft.node_substations_with_hoes CASCADE;
                               DROP VIEW IF EXISTS model_draft.way_substations_with_hoes CASCADE;
                               DROP VIEW IF EXISTS model_draft.way_substations CASCADE; ''')
+
+    execution_time = time.monotonic() - start_time
 
 
 ego_dp_substation_ehv()

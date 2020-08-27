@@ -10,11 +10,3 @@ def delete_files():
     os.remove("/home/sharonov/snakemake/sixth.txt")
 
 delete_files()
-
-
-
-
-
-
-
-

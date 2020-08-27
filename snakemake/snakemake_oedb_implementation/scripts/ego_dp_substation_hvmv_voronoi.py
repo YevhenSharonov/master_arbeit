@@ -1,5 +1,6 @@
 from sqlalchemy import create_engine
 import datetime
+import time
 
 def write_into_sixth_file():
 
@@ -8,11 +9,14 @@ def write_into_sixth_file():
     for x in f.readlines():
         f1.write(x)
     now = datetime.datetime.now()
-    f1.write("\nego_dp_substation_hvmv_voronoi: " + str(now) + "\n")
+    f1.write("\nego_dp_substation_hvmv_voronoi:" + "\n    execution date: " + str(now) + "\n    execution time: {:>.3f}".format(execution_time) + " seconds" + "\n")
     f.close()
     f1.close()
 
 def ego_dp_substation_hvmv_voronoi():
+
+    global execution_time
+    start_time = time.monotonic()
 
     engine = create_engine('postgresql://postgres:12345678@localhost:5432/oedb')
 
@@ -198,6 +202,8 @@ def ego_dp_substation_hvmv_voronoi():
                  SELECT obj_description('model_draft.ego_grid_hvmv_substation_voronoi' ::regclass) ::json;
 
                  SELECT scenario_log('eGo_DP', 'v0.4.5','output','model_draft','ego_grid_hvmv_substation_voronoi','ego_dp_substation_hvmv_voronoi.sql',' '); ''')
+
+    execution_time = time.monotonic() - start_time
 
 
 ego_dp_substation_hvmv_voronoi()
