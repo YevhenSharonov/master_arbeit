@@ -1,5 +1,6 @@
 from sqlalchemy import create_engine
 import datetime
+import time
 
 def write_into_second_file():
 
@@ -8,11 +9,14 @@ def write_into_second_file():
     for x in f.readlines():
         f1.write(x)
     now = datetime.datetime.now()
-    f1.write("\nTask create_table: " + str(now) + "\n")
+    f1.write("\nTask create_table:" + "\n    execution date: " + str(now) + "\n    execution time: {:>.3f}".format(execution_time) + " seconds" + "\n")
     f.close()
     f1.close()
 
 def create_table():
+
+    global execution_time
+    start_time = time.monotonic()
 
     engine = create_engine('postgresql://postgres:12345678@localhost:5432/for_test_snakemake')
 
@@ -23,6 +27,8 @@ def create_table():
                  custom_id INTEGER NOT NULL,
                  name INTEGER NOT NULL,
                  user_id VARCHAR(50) NOT NULL); ''')
+
+    execution_time = time.monotonic() - start_time
 
 
 create_table()
