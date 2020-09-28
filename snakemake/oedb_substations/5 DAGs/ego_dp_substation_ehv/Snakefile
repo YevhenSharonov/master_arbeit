@@ -1,0 +1,151 @@
+rule all:
+    input: 
+        "second.txt",
+        "third.txt",
+        "fourth.txt",
+        "fifth.txt",
+        "sixth.txt",
+        "seventh.txt",
+        "eighth.txt",
+        "ninth.txt",
+        "tenth.txt",
+        "eleventh.txt",
+        "twelfth.txt",
+        "thirteenth.txt",
+        "fourteenth.txt",
+        "fifteenth.txt",
+        "sixteenth.txt",
+        "log_file.txt",
+    script:
+        "scripts/delete_files.py"
+
+
+
+rule create_table_ego_grid_ehv_substation:
+    input: 
+        "first.txt"
+    output: 
+        "second.txt"
+    script: 
+        "scripts/create_table_ego_grid_ehv_substation.py"
+
+rule create_view_way_substations:
+    input: 
+        "second.txt"
+    output: 
+        "third.txt"
+    script: 
+        "scripts/create_view_way_substations.py"
+
+rule create_view_way_substations_with_hoes:
+    input: 
+        "third.txt"
+    output: 
+        "fourth.txt"
+    script: 
+        "scripts/create_view_way_substations_with_hoes.py"
+
+rule create_view_node_substations_with_hoes:
+    input: 
+        "fourth.txt"
+    output: 
+        "fifth.txt"
+    script: 
+        "scripts/create_view_node_substations_with_hoes.py"
+
+rule create_view_relation_substations_with_hoes:
+    input: 
+        "fifth.txt"
+    output: 
+        "sixth.txt"
+    script: 
+        "scripts/create_view_relation_substations_with_hoes.py"
+
+rule create_view_substation_hoes:
+    input: 
+        "sixth.txt"
+    output: 
+        "seventh.txt"
+    script: 
+        "scripts/create_view_substation_hoes.py"
+
+rule create_view_summary_total_hoes:
+    input: 
+        "seventh.txt"
+    output: 
+        "eighth.txt"
+    script: 
+        "scripts/create_view_summary_total_hoes.py"
+
+rule create_view_summary_hoes:
+    input: 
+        "eighth.txt"
+    output: 
+        "ninth.txt"
+    script: 
+        "scripts/create_view_summary_hoes.py"
+
+rule create_index_gist:
+    input: 
+        "ninth.txt"
+    output: 
+        "tenth.txt"
+    script: 
+        "scripts/create_index_gist.py"
+
+rule create_view_summary_de_hoes:
+    input: 
+        "tenth.txt"
+    output: 
+        "eleventh.txt"
+    script: 
+        "scripts/create_view_summary_de_hoes.py"
+
+rule create_view_buffer_75_hoes:
+    input: 
+        "eleventh.txt"
+    output: 
+        "twelfth.txt"
+    script: 
+        "scripts/create_view_buffer_75_hoes.py"
+
+rule create_view_buffer_75_a_hoes:
+    input: 
+        "twelfth.txt"
+    output: 
+        "thirteenth.txt"
+    script: 
+        "scripts/create_view_buffer_75_a_hoes.py"
+
+rule create_view_substations_to_drop_hoes:
+    input: 
+        "thirteenth.txt"
+    output: 
+        "fourteenth.txt"
+    script: 
+        "scripts/create_view_substations_to_drop_hoes.py"
+
+rule create_view_final_result_hoes:
+    input: 
+        "fourteenth.txt"
+    output: 
+        "fifteenth.txt"
+    script: 
+        "scripts/create_view_final_result_hoes.py"
+
+rule insert_into_ego_grid_ehv_substation:
+    input: 
+        "fifteenth.txt"
+    output: 
+        "sixteenth.txt"
+    script: 
+        "scripts/insert_into_ego_grid_ehv_substation.py"
+
+rule drop:
+    input: 
+        "sixteenth.txt"
+    output: 
+        "log_file.txt"
+    script: 
+        "scripts/drop.py"
+

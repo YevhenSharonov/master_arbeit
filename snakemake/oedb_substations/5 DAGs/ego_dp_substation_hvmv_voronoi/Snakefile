@@ -1,0 +1,43 @@
+rule all:
+    input: 
+        "second.txt",
+        "third.txt",
+        "fourth.txt",
+        "log_file.txt",
+    script:
+        "scripts/delete_files.py"
+
+
+
+rule set_id_as_subst_id:
+    input: 
+        "first.txt"
+    output: 
+        "second.txt"
+    script: 
+        "scripts/set_id_as_subst_id.py"
+
+rule gemeindeschluessel:
+    input: 
+        "second.txt"
+    output: 
+        "third.txt"
+    script: 
+        "scripts/gemeindeschluessel.py"
+
+rule create_dummy_points_for_voronoi_calculation:
+    input: 
+        "third.txt"
+    output: 
+        "fourth.txt"
+    script: 
+        "scripts/create_dummy_points_for_voronoi_calculation.py"
+
+rule voronoi_polygons_with_eucldean_distance:
+    input: 
+        "fourth.txt"
+    output: 
+        "log_file.txt"
+    script: 
+        "scripts/voronoi_polygons_with_eucldean_distance.py"
+

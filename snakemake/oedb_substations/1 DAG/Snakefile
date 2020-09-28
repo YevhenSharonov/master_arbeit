@@ -1,0 +1,51 @@
+rule all:
+    input: 
+        "second.txt",
+        "third.txt",
+        "fourth.txt",
+        "fifth.txt",
+        "log_file.txt",
+    script:
+        "scripts/delete_files.py"
+
+
+
+rule ego_dp_substation_hvmv:
+    input: 
+        "first.txt"
+    output: 
+        "second.txt"
+    script: 
+        "scripts/ego_dp_substation_hvmv.py"
+
+rule ego_dp_substation_ehv:
+    input: 
+        "second.txt"
+    output: 
+        "third.txt"
+    script: 
+        "scripts/ego_dp_substation_ehv.py"
+
+rule ego_dp_substation_otg:
+    input: 
+        "third.txt"
+    output: 
+        "fourth.txt"
+    script: 
+        "scripts/ego_dp_substation_otg.py"
+
+rule ego_dp_substation_hvmv_voronoi:
+    input: 
+        "fourth.txt"
+    output: 
+        "fifth.txt"
+    script: 
+        "scripts/ego_dp_substation_hvmv_voronoi.py"
+
+rule ego_dp_substation_ehv_voronoi:
+    input: 
+        "fifth.txt"
+    output: 
+        "log_file.txt"
+    script: 
+        "scripts/ego_dp_substation_ehv_voronoi.py"

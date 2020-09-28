@@ -1,0 +1,159 @@
+rule all:
+    input: 
+        "second.txt",
+        "third.txt",
+        "fourth.txt",
+        "fifth.txt",
+        "sixth.txt",
+        "seventh.txt",
+        "eighth.txt",
+        "ninth.txt",
+        "tenth.txt",
+        "eleventh.txt",
+        "twelfth.txt",
+        "thirteenth.txt",
+        "fourteenth.txt",
+        "fifteenth.txt",
+        "sixteenth.txt",
+        "seventeenth.txt",
+        "log_file.txt",
+    script:
+        "scripts/delete_files.py"
+
+
+
+rule create_table_hvmv_substations:
+    input: 
+        "first.txt"
+    output: 
+        "second.txt"
+    script: 
+        "scripts/create_table_hvmv_substations.py"
+
+rule create_view_way_substation:
+    input: 
+        "second.txt"
+    output: 
+        "third.txt"
+    script: 
+        "scripts/create_view_way_substation.py"
+
+rule create_view_way_substation_110kv:
+    input: 
+        "third.txt"
+    output: 
+        "fourth.txt"
+    script: 
+        "scripts/create_view_way_substation_110kv.py"
+
+rule create_view_way_substation_without_110kv:
+    input: 
+        "fourth.txt"
+    output: 
+        "fifth.txt"
+    script: 
+        "scripts/create_view_way_substation_without_110kv.py"
+
+rule create_view_node_substation_110kv:
+    input: 
+        "fifth.txt"
+    output: 
+        "sixth.txt"
+    script: 
+        "scripts/create_view_node_substation_110kv.py"
+
+rule create_view_lines_substation_110kv:
+    input: 
+        "sixth.txt"
+    output: 
+        "seventh.txt"
+    script: 
+        "scripts/create_view_lines_substation_110kv.py"
+
+rule create_view_way_substations_without_110kv_intersected_by_110kv_line:
+    input: 
+        "seventh.txt"
+    output: 
+        "eighth.txt"
+    script: 
+        "scripts/create_view_way_substations_without_110kv_intersected_by_110kv_line.py"
+
+rule drop_create_view_substation_110kv:
+    input: 
+        "eighth.txt"
+    output: 
+        "ninth.txt"
+    script: 
+        "scripts/drop_create_view_substation_110kv.py"
+
+rule create_view_summary_total:
+    input: 
+        "ninth.txt"
+    output: 
+        "tenth.txt"
+    script: 
+        "scripts/create_view_summary_total.py"
+
+rule create_view_filters_irrelevant_tags:
+    input: 
+        "tenth.txt"
+    output: 
+        "eleventh.txt"
+    script: 
+        "scripts/create_view_filters_irrelevant_tags.py"
+
+rule create_view_substation_not_within_vg250:
+    input: 
+        "eleventh.txt"
+    output: 
+        "twelfth.txt"
+    script: 
+        "scripts/create_view_substation_not_within_vg250.py"
+
+rule create_view_buffer_75m_around_polygons:
+    input: 
+        "twelfth.txt"
+    output: 
+        "thirteenth.txt"
+    script: 
+        "scripts/create_view_buffer_75m_around_polygons.py"
+
+rule create_second_view_with_same_data:
+    input: 
+        "thirteenth.txt"
+    output: 
+        "fourteenth.txt"
+    script: 
+        "scripts/create_second_view_with_same_data.py"
+
+rule create_view_eiliminate_smaller_substations:
+    input: 
+        "fourteenth.txt"
+    output: 
+        "fifteenth.txt"
+    script: 
+        "scripts/create_view_eiliminate_smaller_substations.py"
+
+rule create_view_filter_substations_final_result:
+    input: 
+        "fifteenth.txt"
+    output: 
+        "sixteenth.txt"
+    script: 
+        "scripts/create_view_filter_substations_final_result.py"
+
+rule insert_results:
+    input: 
+        "sixteenth.txt"
+    output: 
+        "seventeenth.txt"
+    script: 
+        "scripts/insert_results.py"
+
+rule drop:
+    input: 
+        "seventeenth.txt"
+    output: 
+        "log_file.txt"
+    script: 
+        "scripts/drop.py"

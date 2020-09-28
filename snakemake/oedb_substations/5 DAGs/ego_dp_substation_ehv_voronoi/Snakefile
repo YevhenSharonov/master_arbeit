@@ -1,0 +1,24 @@
+rule all:
+    input: 
+        "second.txt",
+        "log_file.txt",
+    script:
+        "scripts/delete_files.py"
+
+
+
+rule add_dummy_points:
+    input: 
+        "first.txt"
+    output: 
+        "second.txt"
+    script: 
+        "scripts/add_dummy_points.py"
+
+rule execute_voronoi_algorithm_with_220_and_380kv_substations:
+    input: 
+        "second.txt"
+    output: 
+        "log_file.txt"
+    script: 
+        "scripts/execute_voronoi_algorithm_with_220_and_380kv_substations.py"

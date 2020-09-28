@@ -65,9 +65,8 @@
 3. Open scripts
 * Change path to files in every script
 * Change '12345678' password for postgres to your password 
-4. Create 'for_test_snakemake' database
-5. In "snakemake" folder execute "conda activate snakemake"
-6. Different options:
+4. In "snakemake" folder execute "conda activate snakemake"
+5. Different options:
 * "snakemake -n" for performing a dry run of Snakemake 
 * "snakemake --dag | dot | display" for creating a representation of the DAG
 * "snakemake --cores 1" for executing the workflow 
