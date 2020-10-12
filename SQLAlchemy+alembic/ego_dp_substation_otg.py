@@ -38,10 +38,17 @@ otg_ehvhv_bus_data = Table('otg_ehvhv_bus_data', meta, autoload=True, autoload_w
 #operations with "ego_grid_hvmv_substation" table
 
 #update
-hvmv_substation_update = ego_grid_hvmv_substation.update().values(otg_id=otg_ehvhv_bus_data.c.bus_i).where(and_(otg_ehvhv_bus_data.c.base_kv<=110, otg_ehvhv_bus_data.c.osm_substation_id==cast(func.trim(ego_grid_hvmv_substation.c.osm_id, 'nw'), BigInteger)))
+hvmv_substation_update = ego_grid_hvmv_substation.update().values(otg_id=otg_ehvhv_bus_data.c.bus_i).where(
+                                                  and_(
+                                                       otg_ehvhv_bus_data.c.base_kv<=110, 
+                                                       otg_ehvhv_bus_data.c.osm_substation_id==cast(func.trim(ego_grid_hvmv_substation.c.osm_id, 'nw'), BigInteger)
+                                                  )
+                         )
 
 #delete 
-hvmv_substation_delete = ego_grid_hvmv_substation.delete().where(ego_grid_hvmv_substation.c.otg_id.is_(None))
+hvmv_substation_delete = ego_grid_hvmv_substation.delete().where(
+                                                  ego_grid_hvmv_substation.c.otg_id.is_(None)
+                         )
 
 #execution
 conn.execute(hvmv_substation_update)
@@ -51,14 +58,18 @@ conn.execute(hvmv_substation_delete)
 #operations with "ego_grid_ehv_substation" table
 
 #update
-ehv_substation_update = ego_grid_ehv_substation.update().values(otg_id=otg_ehvhv_bus_data.c.bus_i).where(and_(otg_ehvhv_bus_data.c.base_kv>110, otg_ehvhv_bus_data.c.osm_substation_id==cast(func.trim(ego_grid_ehv_substation.c.osm_id, 'nwr'), BigInteger)))
+ehv_substation_update = ego_grid_ehv_substation.update().values(otg_id=otg_ehvhv_bus_data.c.bus_i).where(
+                                                and_(
+                                                     otg_ehvhv_bus_data.c.base_kv>110, 
+                                                     otg_ehvhv_bus_data.c.osm_substation_id==cast(func.trim(ego_grid_ehv_substation.c.osm_id, 'nwr'), BigInteger)
+                                                )
+                        )
 
 #delete
-ehv_substation_delete = ego_grid_ehv_substation.delete().where(ego_grid_ehv_substation.c.otg_id.is_(None))
+ehv_substation_delete = ego_grid_ehv_substation.delete().where(
+                                                ego_grid_ehv_substation.c.otg_id.is_(None)
+                        )
 
 #execution
 conn.execute(ehv_substation_update)
 conn.execute(ehv_substation_delete)
-
-
-
