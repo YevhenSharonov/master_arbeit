@@ -37,5 +37,7 @@ def create_view_way_substations_with_hoes():
 
                  ALTER VIEW model_draft.way_substations_with_hoes OWNER TO oeuser; ''')
 
+    execution_time = time.monotonic() - start_time
+
 create_view_way_substations_with_hoes()
 write_into_fourth_file()

@@ -46,5 +46,7 @@ def create_view_eiliminate_smaller_substations():
      
                  ALTER MATERIALIZED VIEW model_draft.substations_to_drop OWNER TO oeuser; ''')
 
+    execution_time = time.monotonic() - start_time
+
 create_view_eiliminate_smaller_substations()
 write_into_fifteenth_file()

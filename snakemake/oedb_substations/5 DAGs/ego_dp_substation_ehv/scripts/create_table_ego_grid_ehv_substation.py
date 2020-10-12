@@ -52,5 +52,7 @@ def create_table_ego_grid_ehv_substation():
 	             "comment": "eGoDP - Versioning table",
 	             "version": "v0.4.5" }' ; ''')
 
+    execution_time = time.monotonic() - start_time
+
 create_table_ego_grid_ehv_substation()
 write_into_second_file()

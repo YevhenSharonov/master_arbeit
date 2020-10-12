@@ -50,5 +50,7 @@ def drop_create_view_substation_110kv():
 
                  ALTER VIEW model_draft.substation_110kV OWNER TO oeuser; ''')
 
+    execution_time = time.monotonic() - start_time
+
 drop_create_view_substation_110kv()
 write_into_ninth_file()

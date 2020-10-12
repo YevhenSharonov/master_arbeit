@@ -31,5 +31,7 @@ def insert_into_ego_grid_ehv_substation():
 	              SELECT lon, lat, point, polygon, voltage, power_type, substation, osm_id, osm_www, frequency, subst_name, ref, operator, dbahn, status
 	                FROM model_draft.final_result_hoes; ''')
 
+    execution_time = time.monotonic() - start_time
+
 insert_into_ego_grid_ehv_substation()
 write_into_sixteenth_file()

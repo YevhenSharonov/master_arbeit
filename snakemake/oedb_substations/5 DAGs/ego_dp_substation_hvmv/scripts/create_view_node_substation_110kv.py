@@ -39,5 +39,7 @@ def create_view_node_substation_110kv():
 
                  ALTER VIEW model_draft.node_substations_with_110kV OWNER TO oeuser; ''')
 
+    execution_time = time.monotonic() - start_time
+
 create_view_node_substation_110kv()
 write_into_sixth_file()

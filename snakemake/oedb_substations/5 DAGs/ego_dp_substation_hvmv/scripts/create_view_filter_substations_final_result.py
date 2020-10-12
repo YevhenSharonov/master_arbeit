@@ -37,5 +37,7 @@ def create_view_filter_substations_final_result():
 
                  ALTER VIEW model_draft.final_result OWNER TO oeuser; ''')
 
+    execution_time = time.monotonic() - start_time
+
 create_view_filter_substations_final_result()
 write_into_sixteenth_file()

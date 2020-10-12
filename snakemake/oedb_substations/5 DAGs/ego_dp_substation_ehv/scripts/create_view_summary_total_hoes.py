@@ -68,5 +68,7 @@ def create_view_summary_total_hoes():
 
                  ALTER VIEW model_draft.summary_total_hoes OWNER TO oeuser; ''')
 
+    execution_time = time.monotonic() - start_time
+
 create_view_summary_total_hoes()
 write_into_eighth_file()

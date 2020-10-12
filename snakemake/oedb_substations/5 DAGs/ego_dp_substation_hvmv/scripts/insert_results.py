@@ -31,5 +31,7 @@ def insert_results():
 	              SELECT lon, lat, point, polygon, voltage, power_type, substation, osm_id, osm_www, frequency, subst_name, ref, operator, dbahn, status
 	                FROM model_draft.final_result; ''')
 
+    execution_time = time.monotonic() - start_time
+
 insert_results()
 write_into_seventeenth_file()

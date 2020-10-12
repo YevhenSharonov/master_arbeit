@@ -45,6 +45,7 @@ def create_view_substations_to_drop_hoes():
 		                                         AND NOT model_draft.buffer_75_hoes.osm_id = model_draft.buffer_75_a_hoes.osm_id;
      
                  ALTER MATERIALIZED VIEW model_draft.substations_to_drop_hoes OWNER TO oeuser; ''')
+    execution_time = time.monotonic() - start_time
 
 create_view_substations_to_drop_hoes()
 write_into_fourteenth_file()

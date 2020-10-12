@@ -116,5 +116,7 @@ def execute_voronoi_algorithm_with_220_and_380kv_substations():
 	                          "comment": "eGoDP - Temporary table",
 	                          "version": "v0.4.2" }' ; ''')
 
+    execution_time = time.monotonic() - start_time
+
 execute_voronoi_algorithm_with_220_and_380kv_substations()
 write_into_log_file()

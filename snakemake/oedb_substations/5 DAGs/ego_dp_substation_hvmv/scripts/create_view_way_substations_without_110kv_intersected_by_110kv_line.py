@@ -37,5 +37,7 @@ def create_view_way_substations_without_110kv_intersected_by_110kv_line():
 
                  ALTER VIEW model_draft.way_substations_without_110kV_intersected_by_110kV_line OWNER TO oeuser; ''')
 
+    execution_time = time.monotonic() - start_time
+
 create_view_way_substations_without_110kv_intersected_by_110kv_line()
 write_into_eighth_file()

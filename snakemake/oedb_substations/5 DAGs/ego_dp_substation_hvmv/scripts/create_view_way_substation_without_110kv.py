@@ -38,5 +38,7 @@ def create_view_way_substation_without_110kv():
 
                  ALTER VIEW model_draft.way_substations_without_110kV OWNER TO oeuser; ''')
 
+    execution_time = time.monotonic() - start_time
+
 create_view_way_substation_without_110kv()
 write_into_fifth_file()

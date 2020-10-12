@@ -32,5 +32,7 @@ def add_dummy_points():
                              'POLYGON((0 0, 1 0, 1 1, 0 1, 0 0))', 'dummy'||row_number() OVER(), 'dummy', 0
                         FROM model_draft.ego_grid_hvmv_substation_dummy; ''')
 
+    execution_time = time.monotonic() - start_time
+
 add_dummy_points()
 write_into_second_file()

@@ -36,5 +36,7 @@ def create_view_buffer_75m_around_polygons():
 
                  ALTER MATERIALIZED VIEW model_draft.buffer_75 OWNER TO oeuser; ''')
 
+    execution_time = time.monotonic() - start_time
+
 create_view_buffer_75m_around_polygons()
 write_into_thirteenth_file()

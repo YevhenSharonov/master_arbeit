@@ -36,5 +36,7 @@ def create_second_view_with_same_data():
 
                  ALTER MATERIALIZED VIEW model_draft.buffer_75_a OWNER TO oeuser; ''')
 
+    execution_time = time.monotonic() - start_time
+
 create_second_view_with_same_data()
 write_into_fourteenth_file()

@@ -69,5 +69,7 @@ def create_view_summary_total():
 
                  ALTER VIEW model_draft.summary_total OWNER TO oeuser; ''')
 
+    execution_time = time.monotonic() - start_time
+
 create_view_summary_total()
 write_into_tenth_file()

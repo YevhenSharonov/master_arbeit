@@ -41,5 +41,7 @@ def set_id_as_subst_id():
                  CREATE INDEX ego_grid_hvmv_substation_geom_idx
 	                 ON model_draft.ego_grid_hvmv_substation USING GIST (geom); ''')
 
+    execution_time = time.monotonic() - start_time
+
 set_id_as_subst_id()
 write_into_second_file()

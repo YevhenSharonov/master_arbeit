@@ -42,5 +42,7 @@ def create_view_way_substations():
 
                  ALTER VIEW model_draft.way_substations OWNER TO oeuser; ''')
 
+    execution_time = time.monotonic() - start_time
+
 create_view_way_substations()
 write_into_third_file()

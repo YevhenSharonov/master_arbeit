@@ -36,5 +36,7 @@ def create_view_buffer_75_hoes():
 
                  ALTER MATERIALIZED VIEW model_draft.buffer_75_hoes OWNER TO oeuser; ''')
 
+    execution_time = time.monotonic() - start_time
+
 create_view_buffer_75_hoes()
 write_into_twelfth_file()

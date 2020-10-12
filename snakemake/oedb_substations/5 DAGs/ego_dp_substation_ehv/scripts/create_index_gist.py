@@ -29,5 +29,7 @@ def create_index_gist():
         result = connection.execute('''
                  CREATE INDEX summary_hoes_gix ON model_draft.summary_hoes USING GIST (polygon); ''')
 
+    execution_time = time.monotonic() - start_time
+
 create_index_gist()
 write_into_tenth_file()

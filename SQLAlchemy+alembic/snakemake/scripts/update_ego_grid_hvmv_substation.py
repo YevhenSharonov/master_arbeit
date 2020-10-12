@@ -29,7 +29,7 @@ def update_ego_grid_hvmv_substation():
     start_time = time.monotonic()
 
 # create_engine
-    engine = create_engine('postgresql://postgres:07041995jsh@localhost:5432/oedb')
+    engine = create_engine('postgresql://postgres:12345678@localhost:5432/oedb')
     conn = engine.connect()
 
 #alembic

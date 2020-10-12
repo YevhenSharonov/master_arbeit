@@ -40,5 +40,7 @@ def drop():
                               DROP VIEW IF EXISTS model_draft.way_substations_with_hoes CASCADE;
                               DROP VIEW IF EXISTS model_draft.way_substations CASCADE; ''')
 
+    execution_time = time.monotonic() - start_time
+
 drop()
 write_into_log_file()

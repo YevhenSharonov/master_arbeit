@@ -40,5 +40,7 @@ def create_view_node_substations_with_hoes():
 
                  ALTER VIEW model_draft.node_substations_with_hoes OWNER TO oeuser; ''')
 
+    execution_time = time.monotonic() - start_time
+
 create_view_node_substations_with_hoes()
 write_into_fifth_file()

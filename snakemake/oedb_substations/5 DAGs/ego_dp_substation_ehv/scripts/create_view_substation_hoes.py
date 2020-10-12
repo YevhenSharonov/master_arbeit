@@ -50,5 +50,7 @@ def create_view_substation_hoes():
 
                  ALTER VIEW model_draft.substation_hoes OWNER TO oeuser; ''')
 
+    execution_time = time.monotonic() - start_time
+
 create_view_substation_hoes()
 write_into_seventh_file()

@@ -37,5 +37,7 @@ def create_view_substation_not_within_vg250():
 
                  ALTER VIEW model_draft.summary_de OWNER TO oeuser; ''')
 
+    execution_time = time.monotonic() - start_time
+
 create_view_substation_not_within_vg250()
 write_into_twelfth_file()

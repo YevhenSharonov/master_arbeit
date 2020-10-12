@@ -36,5 +36,7 @@ def create_view_summary_hoes():
 
                  ALTER MATERIALIZED VIEW model_draft.summary_hoes OWNER TO oeuser; ''')
 
+    execution_time = time.monotonic() - start_time
+
 create_view_summary_hoes()
 write_into_ninth_file()

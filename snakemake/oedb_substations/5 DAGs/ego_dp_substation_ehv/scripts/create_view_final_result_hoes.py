@@ -39,5 +39,7 @@ def create_view_final_result_hoes():
 
                  ALTER VIEW model_draft.final_result_hoes OWNER TO oeuser; ''')
 
+    execution_time = time.monotonic() - start_time
+
 create_view_final_result_hoes()
 write_into_fifteenth_file()

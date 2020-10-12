@@ -83,5 +83,7 @@ def create_dummy_points_for_voronoi_calculation():
 
                  SELECT obj_description('model_draft.ego_grid_hvmv_substation_dummy' ::regclass) ::json; ''')
 
+    execution_time = time.monotonic() - start_time
+
 create_dummy_points_for_voronoi_calculation()
 write_into_fourth_file()

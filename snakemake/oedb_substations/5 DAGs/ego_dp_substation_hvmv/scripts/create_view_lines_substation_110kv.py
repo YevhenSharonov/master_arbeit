@@ -41,5 +41,7 @@ def create_view_lines_substation_110kv():
 
                  ALTER VIEW model_draft.way_lines_110kV OWNER TO oeuser; ''')
 
+    execution_time = time.monotonic() - start_time
+
 create_view_lines_substation_110kv()
 write_into_seventh_file()

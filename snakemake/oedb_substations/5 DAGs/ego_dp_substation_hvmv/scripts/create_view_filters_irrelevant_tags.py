@@ -38,5 +38,7 @@ def create_view_filters_irrelevant_tags():
 
                  ALTER MATERIALIZED VIEW model_draft.summary OWNER TO oeuser; ''')
 
+    execution_time = time.monotonic() - start_time
+
 create_view_filters_irrelevant_tags()
 write_into_eleventh_file()

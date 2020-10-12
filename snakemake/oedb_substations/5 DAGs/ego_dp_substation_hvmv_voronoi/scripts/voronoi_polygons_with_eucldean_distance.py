@@ -100,5 +100,7 @@ def voronoi_polygons_with_eucldean_distance():
 
                  SELECT obj_description('model_draft.ego_grid_hvmv_substation_voronoi' ::regclass) ::json; ''')
 
+    execution_time = time.monotonic() - start_time
+
 voronoi_polygons_with_eucldean_distance()
 write_into_log_file()

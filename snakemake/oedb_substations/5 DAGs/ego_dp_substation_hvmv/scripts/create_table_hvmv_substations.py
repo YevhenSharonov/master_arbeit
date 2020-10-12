@@ -52,5 +52,7 @@ def create_table_hvmv_substations():
                      "comment": "eGoDP - Temporary table",
                      "version": "v0.4.5" }'; ''')
 
+    execution_time = time.monotonic() - start_time
+
 create_table_hvmv_substations()
 write_into_second_file()

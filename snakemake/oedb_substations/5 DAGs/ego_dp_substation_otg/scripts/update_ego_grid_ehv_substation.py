@@ -40,5 +40,7 @@ def update_ego_grid_ehv_substation():
 
                  DELETE FROM model_draft.ego_grid_ehv_substation WHERE otg_id IS NULL; ''')
 
+    execution_time = time.monotonic() - start_time
+
 update_ego_grid_ehv_substation()
 write_into_log_file()

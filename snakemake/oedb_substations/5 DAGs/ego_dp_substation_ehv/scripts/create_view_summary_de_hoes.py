@@ -37,5 +37,7 @@ def create_view_summary_de_hoes():
 
                  ALTER VIEW model_draft.summary_de_hoes OWNER TO oeuser; ''')
 
+    execution_time = time.monotonic() - start_time
+
 create_view_summary_de_hoes()
 write_into_eleventh_file()

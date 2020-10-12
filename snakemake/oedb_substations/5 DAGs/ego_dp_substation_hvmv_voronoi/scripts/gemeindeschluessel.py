@@ -35,5 +35,7 @@ def gemeindeschluessel():
 		        ) AS t2
 	          WHERE t1.subst_id = t2.subst_id; ''')
 
+    execution_time = time.monotonic() - start_time
+
 gemeindeschluessel()
 write_into_third_file()
