@@ -1,0 +1,25 @@
+rule all:
+    input: 
+        "second.txt",
+        "log_file.txt",
+    script:
+        "scripts/delete_files.py"
+
+
+
+rule update_ego_grid_hvmv_substation:
+    input: 
+        "first.txt"
+    output: 
+        "second.txt"
+    script: 
+        "scripts/update_ego_grid_hvmv_substation.py"
+
+rule update_ego_grid_ehv_substation:
+    input: 
+        "second.txt"
+    output: 
+        "log_file.txt"
+    script: 
+        "scripts/update_ego_grid_ehv_substation.py"
+
