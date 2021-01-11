@@ -61,13 +61,14 @@
 ## Usage
 
 1. Create folder "snakemake"
-2. Copy "scripts" folder and first.txt, Snakefile into "snakemake" folder
+2. Copy "scripts" folder, first.txt and Snakefile into "snakemake" folder
 3. Open scripts
-* Change path to files in every script
+* Change path to files in each script
 * Change '12345678' password for postgres to your password 
-4. In "snakemake" folder execute "conda activate snakemake"
-5. Different options:
+4. Open "snakemake" folder in Terminal
+5. Execute "conda activate snakemake"
+6. Different options:
 * "snakemake -n" for performing a dry run of Snakemake 
 * "snakemake --dag | dot | display" for creating a representation of the DAG
-* "snakemake --cores 1" for executing the workflow 
+* "snakemake --cores 4" for executing the workflow 
  
